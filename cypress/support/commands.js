@@ -1,15 +1,16 @@
+import { SELECTORS } from './selectors';
+
+// Comando para realizar login com credenciais fornecidas
 Cypress.Commands.add('login', () => {
-    // Acessa a página de login
-    cy.visit('/conta/login');
-  
-    // Insere as credenciais do usuário
-    cy.get('#id_email').type(Cypress.env('CYPRESS_USERNAME')); // Campo de e-mail
-    cy.get('#id_senha').type(Cypress.env('CYPRESS_PASSWORD')); // Campo de senha
-  
-    // Clica no botão "Prosseguir"
-    cy.get('.controls > .botao').click(); // Botão de login
-  
-    // Valida o redirecionamento para a página inicial
-    cy.url().should('include', '/conta/index');
-  });
-  
+  cy.visit('/conta/login');
+  cy.get(SELECTORS.login.email).type(Cypress.env('CYPRESS_USERNAME'));
+  cy.get(SELECTORS.login.password).type(Cypress.env('CYPRESS_PASSWORD'));
+  cy.get(SELECTORS.login.submitButton).click();
+  cy.url().should('include', '/conta/index');
+});
+
+// Comando para aplicar um cupom no carrinho
+Cypress.Commands.add('applyCoupon', (couponCode) => {
+  cy.get(SELECTORS.cart.discountField).type(couponCode);
+  cy.get(SELECTORS.cart.applyCouponButton).click();
+});

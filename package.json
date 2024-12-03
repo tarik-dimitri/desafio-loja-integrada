@@ -1,14 +1,14 @@
 {
   "name": "testes-loja-integrada",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Automação de testes para o desafio da loja integrada",
+  "main": "cypress.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Tarik Dimitri",
   "license": "ISC",
-  "description": "Testes automatizados para o desafio da Loja Integrada",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tarik-dimitri/desafio-loja-integrada.git"
@@ -19,8 +19,5 @@
   "homepage": "https://github.com/tarik-dimitri/desafio-loja-integrada#readme",
   "devDependencies": {
     "cypress": "^13.16.0"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.5"
   }
 }
